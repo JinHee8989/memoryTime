@@ -11,13 +11,19 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
+                .csrf().ignoringAntMatchers("/h2-console/**");
+        http
                 .authorizeRequests()
-                .antMatchers("/", "user/sign-up").permitAll()
+                .antMatchers( "/user/register","/user/sign-up","/h2-console/**").permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .formLogin()
                 .loginPage("/user/login")
                 .permitAll();
+        http
+                .headers()
+                .frameOptions()
+                .disable();
     }
 
 //    @Override

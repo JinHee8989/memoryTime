@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="ko">
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <!-- Required meta tags -->
@@ -44,7 +44,7 @@
             cursor: pointer;
         }
 
-        #loginBtn, #signInBtn {
+        #loginBtn, #signUpBtn {
             color: #495057;
             border: 1px solid lightgray;
         }
@@ -90,17 +90,9 @@
                     <form class="form-signin" action="login.do" method="post" id="loginForm">
                         <input type="text" id="memberId" name="memberId" class="form-control mb-3" placeholder="ID" autofocus>
                         <input type="password" id="pwd" name="memberPwd" class="form-control mb-3" placeholder="Password" required> <br>
-                        <button class="btn" type="button" id="loginBtn">로그인</button>
-                        <!-- <label class="checkbox float-left">
-                          <input type="checkbox" value="remember-me">
-                            아이디 저장하기
-                          </label> -->
+                        <a th:href="@{/user/sign-up}"><button class="btn" type="button" id="loginBtn">회원가입</button></a>
+                        <a th:href="@{/user/main}"><button class="btn" type="button" id="signUpBtn">로그인</button></a>
                     </form>
-                    <div id="find">
-                        <a href="moveToFind.do">계정찾기</a>
-                        <div class="vl"></div>
-                        <a href="moveToSignUp.do">회원가입</a>
-                    </div>
                 </div>
             </div>
         </div>
