@@ -36,7 +36,7 @@ public class UserController {
     public String goLogin(String id, String password) {
 
         userService.login(id,password);
-        return "main";
+        return "index";
     }
 
     @PostMapping(value="/login")
