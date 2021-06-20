@@ -28,7 +28,7 @@ public class UserController {
     public String register(String id, String password, String email) {
         //회원가입 진행
         userService.register(id,password,email);
-        return "login";
+        return "redirect:/";
     }
 
     //로그인
@@ -36,7 +36,7 @@ public class UserController {
     public String goLogin(String id, String password) {
 
         userService.login(id,password);
-        return "index";
+        return "login";
     }
 
     @PostMapping(value="/login")

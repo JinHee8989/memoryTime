@@ -29,5 +29,8 @@ public class UserServiceImpl implements UserService{
     @Override
     public void login(String id, String password) {
 
+        User user = userRepository.findByUsernameAndPassword(id,password);
+
+
     }
 }
