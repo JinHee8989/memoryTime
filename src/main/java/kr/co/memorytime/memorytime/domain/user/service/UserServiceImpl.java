@@ -22,6 +22,7 @@ public class UserServiceImpl implements UserService{
                 .role(UserRole.USER)
                 .email(email)
                 .build();
+
         userRepository.save(user);
     }
 
